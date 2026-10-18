@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-const _background = Color(0xFF17181A);
 const _key = Color(0xFF303136);
 const _utility = Color(0xFF616161);
 const _blue = Color(0xFF109DFF);
@@ -177,14 +176,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         flex: 5,
                         child: Column(
                           children: [
-                            _keyRow(['AC', '±', '%', '÷']),
+                            _keyRow(['AC', '⌫', '%', '÷']),
                             _keyRow(['7', '8', '9', '×']),
                             _keyRow(['4', '5', '6', '-']),
                             _keyRow(['1', '2', '3', '+']),
                             Expanded(
                               child: Row(
                                 children: [
-                                  Expanded(flex: 2, child: _keyButton('0', wide: true)),
+                                  Expanded(flex: 2, child: _keyButton('0')),
                                   Expanded(child: _keyButton('.')),
                                   Expanded(child: _keyButton('=')),
                                 ],
@@ -217,7 +216,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
         child: Row(children: values.map((value) => Expanded(child: _keyButton(value))).toList()),
       );
 
-  Widget _keyButton(String label, {bool wide = false}) {
+  Widget _keyButton(String label) {
     final isOperator = const ['÷', '×', '-', '+', '='].contains(label);
     final isUtility = const ['AC', '±', '%'].contains(label);
     final color = label == '='
